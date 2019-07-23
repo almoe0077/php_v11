@@ -20,8 +20,8 @@
             <button class="buttons_erstelle" formaction="formular_stadt.php" >erstelle Stadt</button>
 
             <?php
-            require "stadt.class.php";
-            require "mensch.class.php";
+            require_once "stadt.class.php";
+            require_once "mensch.class.php";
             /** zuerst vorhandene Arrays aus den *.sav Dateien einlesen */
             $menschen = loadMenschen();
             $staedte = loadStaedte();
@@ -76,7 +76,7 @@
             }
             function zeigeMenschen($menschen) {
                 if (is_array($menschen)) {
-                    echo "<h1>zeige Menschen</h1>";
+                    echo "<h1 class='headline2'>zeige Menschen</h1>";
                     foreach ($menschen as $mensch) {
                         echo "Name:<input class='menschProp' type='text' readonly='true' value='" . $mensch->getName() . "'>";
                         echo "Alter:<input class='menschProp' type='text' readonly='true' value='" . $mensch->getAlter() . "'>";
@@ -90,7 +90,7 @@
             }
             function zeigeStaedte($staedte){
                 if (is_array($staedte)) {
-                    echo "<h1>zeige Städte</h1>";
+                    echo "<h1 class='headline2'>zeige Städte</h1>";
                     foreach ($staedte as $stadt) {
                         echo "Name:<input class='stadtProp' type='text' readonly='true' value='".$stadt->getName()."'>";
                         echo "Einwohner:<input class='stadtProp' type='text' readonly='true' value='".$stadt->getEinwohner()."'>";

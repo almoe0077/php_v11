@@ -7,9 +7,11 @@ button>a            {text-decoration: none; color: black; }
 
 .headline           {background-color: #ff383a; border-top: solid 1px black; border-bottom: solid 1px black; }
 
-.buttons_erstelle   {background-color: #ff6f70; }
+.headline2          {background-color: #ffe6e1; border-top: solid 1px black; border-bottom: solid 1px black; }
 
-.buttons_zeige      {background-color: #ffa9a7; margin-bottom: 15px; }
+.buttons_erstelle   {background-color: #ff6f70; margin-top: 25px; }
+
+.buttons_zeige      {background-color: #ffa9a7; margin-bottom: 25px; }
 
 .menschProp         {margin-left: 10px; margin-right: 60px; margin-bottom: 15px; }
 .menschPropR        {margin-left: 10px; }
