@@ -16,4 +16,25 @@ class stadt {
         $this->einwohner = $e;
         $this->land = $l;
     }
+
+    /**
+     * @return Name
+     */
+    public function getName() {
+        return $this->name;
+    }
+
+    /**
+     * @return Einwohner
+     */
+    public function getEinwohner() {
+        return $this->einwohner;
+    }
+
+    /**
+     * @return Land
+     */
+    public function getLand() {
+        return $this->land;
+    }
 }

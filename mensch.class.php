@@ -18,4 +18,32 @@ class mensch {
         $this->wohnort = $w;
         $this->verheiratet = $v;
     }
+
+    /**
+     * @return name
+     */
+    public function getName() {
+        return $this->name;
+    }
+
+    /**
+     * @return Alter
+     */
+    public function getAlter() {
+        return $this->alter;
+    }
+
+    /**
+     * @return Wohnort
+     */
+    public function getWohnort() {
+        return $this->wohnort;
+    }
+
+    /**
+     * @return Verheiratet
+     */
+    public function getVerheiratet() {
+        return $this->verheiratet;
+    }
 }
