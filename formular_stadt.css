@@ -1,0 +1,13 @@
+form                {border: solid 1px black; width: 300px; text-align: center}
+
+.headline           {background-color: #cdcdcd; border-top: solid 1px black; border-bottom: solid 1px black; }
+
+#name               {margin-left: 50px; width: 150px;}
+
+#einwohner          {margin-left: 18px; margin-top: 15px; width: 149px;}
+
+#land               {margin-left: 55px; margin-top: 15px; width: 150px; }
+
+#submit             {margin-top: 20px; margin-bottom: 20px; background-color: #cdcdcd; }
+
+.fehler             {background-color: #e38585; width: 280px; border: solid 2px red; padding: 10px; margin-top: 40px; text-align: center}
