@@ -20,10 +20,8 @@
             <button class="buttons_erstelle" formaction="formular_stadt.php" >erstelle Stadt</button>
 
             <?php
-            //damit wir auf die Eigenschaften der Klassen zugreifen können, braucht es die folgenden requires''
             require "stadt.class.php";
             require "mensch.class.php";
-
             /** zuerst vorhandene Arrays aus den *.sav Dateien einlesen */
             $menschen = loadMenschen();
             $staedte = loadStaedte();
@@ -41,9 +39,10 @@
                 $staedte[] = $stadt;
                 saveStaedte($staedte);
             }
-
-            echo"<p>erstellte Menschen: ".count($menschen)."</p>";
-            echo"<p>erstellte Staedte: ".count($staedte)."</p>";
+            $cm = ($menschen) ? count($menschen) : 0;
+            $cs = ($staedte) ? count($staedte) : 0;
+            echo"<p>erstellte Menschen: $cm</p>";
+            echo"<p>erstellte Staedte: $cs</p>";
             ?>
 
             <button class="buttons_zeige"><a href="<?php echo $_SERVER['PHP_SELF']; ?>?wert=menschen">zeige Menschen</a></button>
@@ -76,20 +75,30 @@
                 file_put_contents('staedte.sav', $staedteSerial);
             }
             function zeigeMenschen($menschen) {
-                echo "<h1>zeige Menschen</h1>";
-                foreach ($menschen as $mensch) {
-                    echo "Name:<input class='menschProp' type='text' readonly='true' value='".$mensch->getName()."'>";
-                    echo "Alter:<input class='menschProp' type='text' readonly='true' value='".$mensch->getAlter()."'>";
-                    echo "Wohnort:<input class='menschProp' type='text' readonly='true' value='".$mensch->getWohnort()."'>";
-                    echo "verheiratet:<input class='menschPropR' type='text' readonly='true' value='".$mensch->getVerheiratet()."'></br>";
+                if (is_array($menschen)) {
+                    echo "<h1>zeige Menschen</h1>";
+                    foreach ($menschen as $mensch) {
+                        echo "Name:<input class='menschProp' type='text' readonly='true' value='" . $mensch->getName() . "'>";
+                        echo "Alter:<input class='menschProp' type='text' readonly='true' value='" . $mensch->getAlter() . "'>";
+                        echo "Wohnort:<input class='menschProp' type='text' readonly='true' value='" . $mensch->getWohnort() . "'>";
+                        echo "verheiratet:<input class='menschPropR' type='text' readonly='true' value='" . $mensch->getVerheiratet() . "'></br>";
+                    }
+                }
+                else {
+                    echo "<h2>keine Menschen erstellt</h2>";
                 }
             }
             function zeigeStaedte($staedte){
-                echo "<h1>zeige Städte</h1>";
-                foreach ($staedte as $stadt) {
-                    echo "Name:<input class='stadtProp' type='text' readonly='true' value='".$stadt->getName()."'>";
-                    echo "Einwohner:<input class='stadtProp' type='text' readonly='true' value='".$stadt->getEinwohner()."'>";
-                    echo "Land:<input class='stadtPropR' type='text' readonly='true' value='".$stadt->getLand()."'></br>";
+                if (is_array($staedte)) {
+                    echo "<h1>zeige Städte</h1>";
+                    foreach ($staedte as $stadt) {
+                        echo "Name:<input class='stadtProp' type='text' readonly='true' value='".$stadt->getName()."'>";
+                        echo "Einwohner:<input class='stadtProp' type='text' readonly='true' value='".$stadt->getEinwohner()."'>";
+                        echo "Land:<input class='stadtPropR' type='text' readonly='true' value='".$stadt->getLand()."'></br>";
+                    }
+                }
+                else {
+                    echo "<h2>keine Städte erstellt</h2>";
                 }
             }
             ?>
