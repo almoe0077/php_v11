@@ -21,27 +21,46 @@
             <?php
 
                 /** zuerst vorhandene Arrays aus den *.sav Dateien einlesen */
-                $menschenSerial = file_get_contents('menschen.sav');
-                $menschen = unserialize($menschenSerial);
-                $staedteSerial  = file_get_contents('staedte.sav');
-                $staedte  = unserialize($staedteSerial);
+                $menschen = loadMenschen();
+                $staedte = loadStaedte();
 
                 /** wenn ein Mensch erstellt wurde **/
                 if (isset($_POST['alter'])) {
+                    // aktuellen Mensch zum Array hinzufügen und Array speichern
                     $menschen[] = $mensch;
-                    $menschenSerial = serialize($menschen);
-                    file_put_contents('menschen.sav', $menschenSerial);
+                    saveMenschen($menschen);
                 }
 
                 /** wenn eine Stadt erstellt wurde **/
                 if (isset($_POST['einwohner'])) {
+                    // aktuelle Stadt zum Array hinzufügen und Array speichern
                     $staedte[] = $stadt;
-                    $staedteSerial = serialize($staedte);
-                    file_put_contents('staedte.sav', $staedteSerial);
+                    saveStaedte($staedte);
                 }
 
-            echo"<p>erstellte Menschen: ".count($menschen)."</p>";
-            echo"<p>erstellte Staedte: ".count($staedte)."</p>";
+                echo"<p>erstellte Menschen: ".count($menschen)."</p>";
+                echo"<p>erstellte Staedte: ".count($staedte)."</p>";
+
+
+
+            function loadMenschen() {
+                $menschenSerial = file_get_contents('menschen.sav');
+                $menschen = unserialize($menschenSerial);
+                return $menschen;
+            }
+            function loadStaedte() {
+                $staedteSerial  = file_get_contents('staedte.sav');
+                $staedte  = unserialize($staedteSerial);
+                return $staedte;
+            }
+            function saveMenschen($menschen) {
+                $menschenSerial = serialize($menschen);
+                file_put_contents('menschen.sav', $menschenSerial);
+            }
+            function saveStaedte($staedte) {
+                $staedteSerial = serialize($staedte);
+                file_put_contents('staedte.sav', $staedteSerial);
+            }
             ?>
         </form>
     </body>
