@@ -20,30 +20,31 @@ class mensch {
     }
 
     /**
-     * @return name
+     * @return String Name
      */
     public function getName() {
         return $this->name;
     }
 
     /**
-     * @return Alter
+     * @return Int Alter
      */
     public function getAlter() {
         return $this->alter;
     }
 
     /**
-     * @return Wohnort
+     * @return String Wohnort
      */
     public function getWohnort() {
         return $this->wohnort;
     }
 
     /**
-     * @return Verheiratet
+     * @return String Verheiratet
      */
     public function getVerheiratet() {
         return $this->verheiratet;
     }
+
 }

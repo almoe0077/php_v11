@@ -8,6 +8,7 @@
 
 /** ein Formular mit vier Feldern, die alle einen Wert benötigen */
 
+require 'stadt.class.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,19 @@
         <label for="alter">Alter: </label>
         <input id="alter" name="alter" type="number" value="<?php if(isset($_POST['alter'])) echo htmlspecialchars($_POST['alter']) ?>"><br/>
         <label for="wohnort">Wohnort: </label>
-        <input id="wohnort" name="wohnort" type="text" value="<?php if(isset($_POST['wohnort'])) echo htmlspecialchars($_POST['wohnort']) ?>"><br/>
+        <select id="wohnort" name="wohnort">
+            <?php
+                $staedte = unserialize(file_get_contents('staedte.sav'));
+                foreach ($staedte as $stadt) {
+                    if (isset($_POST['wohnort']) && ($_POST['wohnort'] == $stadt->getName()))
+                        echo "<option selected>".$stadt->getName()."</option>";
+                    else
+                        echo "<option>".$stadt->getName()."</option>";
+                }
+            ?>
+        </select>
+
+        <!--input id="wohnort" name="wohnort" type="text" value="<?php if(isset($_POST['wohnort'])) echo htmlspecialchars($_POST['wohnort']) ?>"><br/-->
         <div id="verheiratet">
             verheiratet:
                 <input class="verheiratet_inner" type="radio" id="verheiratetJa" name="verheiratet" value="ja" <?php if(isset($_POST['verheiratet']) &&  $_POST['verheiratet']=='ja') echo 'checked="checked"' ?>>

@@ -18,23 +18,24 @@ class stadt {
     }
 
     /**
-     * @return Name
+     * @return String Name
      */
     public function getName() {
         return $this->name;
     }
 
     /**
-     * @return Einwohner
+     * @return Int Einwohner
      */
     public function getEinwohner() {
         return $this->einwohner;
     }
 
     /**
-     * @return Land
+     * @return String Land
      */
     public function getLand() {
         return $this->land;
     }
+
 }
