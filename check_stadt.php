@@ -23,13 +23,19 @@ else {
     require "stadt.class.php";
     $stadt = new stadt($_POST['name'], $_POST['einwohner'], $_POST['land']);
     $staedte = loadStaedte();
+    // Prüfung ob es die Stadt schon gibt...
     $indikator = false;
     foreach ($staedte as $st) {
         if ($st->getName() == $stadt->getName())
             $indikator = true;
     }
+    // nur wenn nicht, dann ...
     if (!$indikator)
-        $staedte[] = $stadt;
+        // wenn eine neue Stadt erstellt wurde, diese zum Array hinzufügen, ansonst die Betroffene ändern
+        if ($_POST['index']=='')
+            $staedte[] = $stadt;
+        else
+            $staedte[$_POST['index']] = $stadt;
     saveStaedte($staedte);
     header("Location: GUI.php");
 }

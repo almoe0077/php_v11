@@ -24,7 +24,11 @@ else {
     require "mensch.class.php";
     $mensch = new mensch($_POST['name'], $_POST['alter'], $_POST['wohnort'], $_POST['verheiratet']);
     $menschen = loadMenschen();
-    $menschen[] = $mensch;
+    // wenn ein neuer Mensch erstellt wurde, diesen zum Array hinzufügen, ansonst den Betroffen ändern
+    if ($_POST['index']=='')
+        $menschen[] = $mensch;
+    else
+        $menschen[$_POST['index']] = $mensch;
     saveMenschen($menschen);
     header("Location: GUI.php");
 }

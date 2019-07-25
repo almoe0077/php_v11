@@ -1,3 +1,6 @@
+/* den Buttons ein padding zu verpassen ist ungeschickt, da es sich natürlich auch auf die Links innerhalb
+   auswirkt, diese haben dann ebenfalls den Aussenabstand in dem sie nicht funktionieren */
+
 body                {border: solid 2px grey; text-align: center; min-height: 200px; }
 
 button              {margin-left: 8px; width: 110px; padding-top: 3px; padding-bottom: 3px; padding-left: 5px; padding-right: 5px;
@@ -5,12 +8,20 @@ button              {margin-left: 8px; width: 110px; padding-top: 3px; padding-b
 
 button>a            {text-decoration: none; color: black; }
 
+.x                  {background-color: #5e5150; color: white; font-weight: bold; font-size: 0.45em; width: 24px;
+                     border-radius: 7px; margin-top: 7px; left: 1595px; position: absolute; z-index: 1; }
+
+.save,.restore      {background-color: #5e5150; border-radius: 7px; position: absolute; z-index: 1; margin-top: 7px;}
+
+.save>a,.restore>a  {color: white; font-weight: bold; font-size: 1.1em; }
+
+.restore            {width: 120px; left: 1500px;}
+
+.save               {left: 1380px; }
+
 .headline           {background-color: #ff383a; border-top: solid 1px black; border-bottom: solid 1px black; }
 
 .headline2          {background-color: #ffe6e1; border-top: solid 1px black; border-bottom: solid 1px black; }
-
-.x                  {background-color: #5e5150; color: white; font-weight: bold; font-size: 0.45em; width: 24px;
-                     border-radius: 7px; margin-top: 7px; left: 1595px; position: absolute; z-index: 1; }
 
 .buttons_erstelle   {background-color: #ff6f70; margin-top: 25px; }
 
@@ -19,8 +30,19 @@ button>a            {text-decoration: none; color: black; }
 .buttons_zeigeZ2    {margin-bottom: 25px; }
 
 .menschProp         {margin-left: 10px; margin-right: 60px; margin-bottom: 15px; }
+
 .menschPropR        {margin-left: 10px; }
 
+.PropNr             {width: 20px; margin-right: 20px; }
+
+.del,.chg           {width: 40px; margin-right: 10px; background-color: #5e5150; font-weight: bold;
+                     border-radius: 7px;}
+
+.del>a,.chg>a       {color: white; }
+
+.chg                {margin-right: 60px; }
+
 .stadtProp          {margin-left: 10px; margin-right: 60px; margin-bottom: 15px; }
+
 .stadtPropR         {margin-left: 10px; }
 
